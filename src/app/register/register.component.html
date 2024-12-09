@@ -1,0 +1,93 @@
+<div class="w-100 position-relative container-register">
+  <div class="content w-100 h-100 position-relative bg-dark">
+    <form [formGroup]="registerForm" (submit)="enviar()"
+          class="position-relative bg-white m-auto py-4 px-3 shadow-sm rounded-3">
+      <div class="border-bottom border-light-subtle pb-3 mb-3">
+        <h1 class="h3 text-center mb-0">Registro</h1>
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Usuario</label>
+        <input
+          formControlName="username"
+          class="form-control"
+          [ngClass]="{
+          'is-invalid': registerForm.get('username')?.touched && registerForm.get('username')?.invalid,
+          'is-valid': registerForm.get('username')?.touched && registerForm.get('username')?.valid
+          }"
+          type="text" id="username" placeholder="Usuario">
+        <div class="invalid-feedback" *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid">
+          El usuario es obligatorio
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password">Contraseña</label>
+        <div class="position-relative show-password">
+          <i (click)="togglePassword()"
+             class="bi bi-eye-slash position-absolute d-flex align-items-center justify-content-center px-3"
+             [ngClass]="changeType ? 'bi-eye-fill' : 'bi-eye-slash-fill' "></i>
+          <input
+            class="form-control"
+            formControlName="password"
+            [ngClass]="{
+            'is-invalid': registerForm.get('password')?.touched && registerForm.get('password')?.invalid,
+            'is-valid': registerForm.get('password')?.touched && registerForm.get('password')?.valid
+            }"
+            type="{{changeType ? 'text' : 'password'}}"
+            id="password" placeholder="******">
+          <div class="invalid-feedback"
+               *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+            La contraseña es obligatoria
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input
+          formControlName="name"
+          class="form-control"
+          [ngClass]="{
+          'is-invalid': registerForm.get('name')?.touched && registerForm.get('name')?.invalid,
+          'is-valid': registerForm.get('name')?.touched && registerForm.get('name')?.valid
+          }"
+          type="text" id="name" placeholder="Nombre">
+        <div class="invalid-feedback" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid">
+          El nombre es obligatorio
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{
+          'is-invalid': registerForm.get('email')?.touched && registerForm.get('email')?.invalid,
+          'is-valid': registerForm.get('email')?.touched && registerForm.get('email')?.valid
+          }"
+          type="email" id="email" placeholder="Email">
+        <div class="invalid-feedback" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+          El email es obligatorio
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="age" class="form-label">Edad</label>
+        <input
+          formControlName="age"
+          class="form-control"
+          [ngClass]="{
+          'is-invalid': registerForm.get('age')?.touched && registerForm.get('age')?.invalid,
+          'is-valid': registerForm.get('age')?.touched && registerForm.get('age')?.valid
+          }"
+          type="number" id="age" placeholder="Edad">
+        <div class="invalid-feedback" *ngIf="registerForm.get('age')?.touched && registerForm.get('age')?.invalid">
+          La edad es obligatoria
+        </div>
+      </div>
+      <div class="text-end mb-5">
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Registrarse</button>
+      </div>
+      <div class="border-top border-light-subtle pt-3">
+        <button type="button" class="btn btn-outline-dark w-100">Ya tengo cuenta</button>
+      </div>
+    </form>
+  </div>
+</div>

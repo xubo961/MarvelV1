@@ -1,6 +1,6 @@
 <div class="w-100 position-relative container-register">
   <div class="content w-100 h-100 position-relative bg-dark">
-    <form [formGroup]="registerForm" (submit)="enviar()"
+    <form [formGroup]="registerForm" (submit)="registrar()"
           class="position-relative bg-white m-auto py-4 px-3 shadow-sm rounded-3">
       <div class="border-bottom border-light-subtle pb-3 mb-3">
         <h1 class="h3 text-center mb-0">Registro</h1>
@@ -41,16 +41,16 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="name" class="form-label">Nombre</label>
+        <label for="nombre" class="form-label">Nombre</label>
         <input
-          formControlName="name"
+          formControlName="nombre"
           class="form-control"
           [ngClass]="{
-          'is-invalid': registerForm.get('name')?.touched && registerForm.get('name')?.invalid,
-          'is-valid': registerForm.get('name')?.touched && registerForm.get('name')?.valid
+          'is-invalid': registerForm.get('nombre')?.touched && registerForm.get('nombre')?.invalid,
+          'is-valid': registerForm.get('nombre')?.touched && registerForm.get('nombre')?.valid
           }"
-          type="text" id="name" placeholder="Nombre">
-        <div class="invalid-feedback" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid">
+          type="text" id="nombre" placeholder="Nombre">
+        <div class="invalid-feedback" *ngIf="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.invalid">
           El nombre es obligatorio
         </div>
       </div>
@@ -69,16 +69,16 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="age" class="form-label">Edad</label>
+        <label for="edad" class="form-label">Edad</label>
         <input
-          formControlName="age"
+          formControlName="edad"
           class="form-control"
           [ngClass]="{
-          'is-invalid': registerForm.get('age')?.touched && registerForm.get('age')?.invalid,
-          'is-valid': registerForm.get('age')?.touched && registerForm.get('age')?.valid
+          'is-invalid': registerForm.get('edad')?.touched && registerForm.get('edad')?.invalid,
+          'is-valid': registerForm.get('edad')?.touched && registerForm.get('edad')?.valid
           }"
-          type="number" id="age" placeholder="Edad">
-        <div class="invalid-feedback" *ngIf="registerForm.get('age')?.touched && registerForm.get('age')?.invalid">
+          type="number" id="edad" placeholder="Edad">
+        <div class="invalid-feedback" *ngIf="registerForm.get('edad')?.touched && registerForm.get('edad')?.invalid">
           La edad es obligatoria
         </div>
       </div>
@@ -86,7 +86,7 @@
         <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Registrarse</button>
       </div>
       <div class="border-top border-light-subtle pt-3">
-        <button type="button" class="btn btn-outline-dark w-100">Ya tengo cuenta</button>
+        <button type="button" class="btn btn-outline-dark w-100" routerLink="">Ya tengo cuenta</button>
       </div>
     </form>
   </div>

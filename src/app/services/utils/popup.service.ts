@@ -16,7 +16,7 @@ export class PopupService {
       title: tittle,
       text: message,
       icon: type,
-      confirmButtonText: 'Cerrar'
+      confirmButtonText: 'Cerrar',
     })
   }
 

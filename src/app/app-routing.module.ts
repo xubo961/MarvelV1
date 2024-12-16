@@ -5,18 +5,28 @@ import {AppComponent} from './app.component';
 import {LayoutConHeaderComponent} from './layout-con-header/layout-con-header.component';
 import {PanelControlComponent} from './panel-control/panel-control.component';
 import {RegisterComponent} from './register/register.component';
+import {UsersComponent} from './users/users.component';
+import {isLoggedGuard} from './services/guards/is-logged.guard';
+import {FormLayoutComponent} from './form-layout/form-layout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "login" ,pathMatch: "full" },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
   {
-    path: 'app', component: LayoutConHeaderComponent, children: [
-      { path: "", redirectTo: "panel-control", pathMatch: "full" },
-      { path: "panel-control", component: PanelControlComponent },
+    path:"", component:FormLayoutComponent, children:[
+
+      {path:"login",component: LoginComponent},
+      {path:"register",component: RegisterComponent,}
     ]
-  }
+  },
+  {path: "", component: LayoutConHeaderComponent, canActivate: [isLoggedGuard], children:[
+      {path:"users", component: UsersComponent},
+    ]}
+  // {
+  //    path: 'app', component: LayoutConHeaderComponent, children: [
+  //      { path: "", redirectTo: "panel-control", pathMatch: "full" },
+  //      { path: "panel-control", component: PanelControlComponent },
+  //    ]
+  //  }
 ];
 
 @NgModule({

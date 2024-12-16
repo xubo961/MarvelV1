@@ -1,0 +1,33 @@
+
+<div class="modal fade" id="modalUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" [formGroup]="registerForm" ]>
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <input type="text" placeholder="usuario" formControlName="username">
+        </div>
+        <div class="mb-3">
+          <input type="password" placeholder="password" formControlName="passsword">
+        </div>
+        <div class="mb-3">
+          <input type="text" placeholder="nombre" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <input type="text" placeholder="email" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <input type="number" placeholder="edad" formControlName="edad">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+        <button type="submit" class="btn btn-primary" (click)="guardar()">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

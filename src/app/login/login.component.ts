@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PopupService} from '../services/utils/popup.service';
 import {LoginService} from '../services/auth/login.service';
 import {LoginUser} from '../services/interfaces/usuario';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private popupService: PopupService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router,
   ) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -33,11 +35,18 @@ export class LoginComponent {
 
     this.loginService.loginv2(this.loginForm.value as LoginUser).subscribe({
       next: data => {
-        this.popupService.showMessage(
-          "success",
+        this.loginService.setUser(this.loginForm.value as LoginUser);
+
+        this.popupService.loading(
           "Iniciar sesión",
-          "Se ha inicaido sesión corréctamente"
+          "Se ha iniciado sesión correctamente. espere unos segundos..."
         )
+
+        setTimeout(() => {
+            this.popupService.close()
+            this.router.navigate(['/users'])
+          },
+          2000)
       },
       error: error => {
         if (error.status === 401) {
@@ -68,7 +77,4 @@ export class LoginComponent {
     //   )
     // }
   }
-
-
-
 }

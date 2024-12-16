@@ -1,0 +1,8 @@
+div.col-3 {
+  cursor: pointer;
+}
+
+div.active, div.col-3:hover {
+  background-color: var(--bs-primary-bg-subtle) !important;
+  color: var(--bs-dark);
+}

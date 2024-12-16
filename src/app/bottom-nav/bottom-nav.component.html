@@ -1,0 +1,15 @@
+
+<div class="position-fixed m-auto border-top border-light-subtle bg-primary text-center text-white bottom-0 w-100 z-3 shadow-sm row align-items-center justify-content-around">
+  <div class="col-3 py-2" routerLink="/users" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <i class="bi bi-house"></i>
+  </div>
+  <div class="col-3 py-2">
+    <i class="bi bi-newspaper"></i>
+  </div>
+  <div class="col-3 py-2">
+    <i class="bi bi-heart"></i>
+  </div>
+  <div class="col-3 py-2" (click)="closeSesion()">
+    <i class="bi bi-power"></i>
+  </div>
+</div>

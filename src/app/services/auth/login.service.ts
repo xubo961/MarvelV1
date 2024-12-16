@@ -31,4 +31,20 @@ export class LoginService {
       }
     });
   }
+
+  setUser(dato: LoginUser): void {
+    sessionStorage.setItem("user", JSON.stringify(dato));
+  }
+
+  getUser(): LoginUser | null {
+    const user = JSON.parse(<string> sessionStorage.getItem("user"));
+    return user ? user : null;
+  }
+
+  deleteUser(): void {
+    const user = JSON.parse(<string> sessionStorage.getItem("user"));
+    if (user) {
+      sessionStorage.removeItem("user");
+    }
+  }
 }

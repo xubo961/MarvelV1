@@ -1,20 +1,28 @@
-<div class="container position-relative my-3 px-3 py-3">
+
+<div class="container position-relative px-3 pt-3">
 
   <h2 class="h4 text-center mb-3 border-bottom border-light-subtle pb-3">Todos los usuarios</h2>
 
   <button type="button" class="w-100 btn btn-outline-primary mb-3" (click)="addNewUser()">Añadir usuario</button>
 
-  <div class="row justify-content-around align-items-center row-gap-3" *ngIf="allUsers > 0">
-    <div class="col-5 shadow-sm rounded-3 py-3 px-3" *ngFor="let user of allUsers">
+  <div class="row justify-content-around align-items-center row-gap-3" *ngIf="allUsers.length > 0">
+
+    <div class="col-12 shadow-sm rounded-3 py-3 px-3" *ngFor="let user of allUsers">
       <p>ID: {{ user.id }}</p>
-      <p>Nombre: {{ user.nombre }}</p>
+      <p>nombre: {{ user.nombre }}</p>
       <p>Correo: {{ user.email }}</p>
       <p>Edad: {{ user.edad }}</p>
     </div>
+
   </div>
-  <p class="" *ngIf="allUsers.length <= 0 && showData">
+
+
+  <p class="" *ngIf="allUsers.length <= 0 && showNoData">
     No se han encontrado datos
   </p>
+
 </div>
+
+
 
 <app-modal-add-user></app-modal-add-user>

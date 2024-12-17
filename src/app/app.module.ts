@@ -15,6 +15,7 @@ import { FormLayoutComponent } from './form-layout/form-layout.component';
 import {authInterceptor} from './services/interceptors/auth.interceptor';
 import { BottomNavComponent } from './bottom-nav/bottom-nav.component';
 import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component';
+import { MarveliListComponent } from './marveli-list/marveli-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ModalAddUserComponent } from './modal-add-user/modal-add-user.component
     UsersComponent,
     FormLayoutComponent,
     BottomNavComponent,
-    ModalAddUserComponent
+    ModalAddUserComponent,
+    MarveliListComponent
   ],
   imports: [
     BrowserModule,

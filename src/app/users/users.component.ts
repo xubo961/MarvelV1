@@ -13,7 +13,7 @@ import {Modal} from 'bootstrap';
 export class UsersComponent implements OnInit {
 
   allUsers: AllUser[] = [];
-  showData: boolean = false;
+  showNoData: boolean = false;
   showModal: boolean = true;
 
   constructor(
@@ -23,33 +23,37 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.popupService.loading("Cargando datos", "Por favor espera");
+    this.popupService.loading("Cargando datos", "Por favor, espere unos segundos..")
     this.userService.getAllUsers().subscribe({
       next: data => {
+        this.allUsers = data;
 
         if (this.allUsers.length <= 0) {
-          this.showData = true;
+          this.showNoData = true;
         }
-        this.popupService.close()
+        this.popupService.close();
       },
       error: err => {
         console.log(err);
       }
     })
-
-    //Aquí hacemos lo de cargar los datos
-    //Cuando entremos en el next hacemos:
-
-    //this.popupService.close();
   }
 
-  addNewUser(): void {
-    const modalElement:HTMLElement|null = document.getElementById('modalUser');
+  // addNewUser(): void {
+  //   const modalElement:HTMLElement|null = document.getElementById('modalUser');
+  //   if (modalElement) {
+  //     const  modalInstance = new bootstrap.Modal(modalElement);
+  //     if (!this.showModal) {
+  //       modalInstance.show();
+  //     }
+  //   }
+  // }
+
+  addNewUser() {
+    const modalElement = document.getElementById('modalUser');
     if (modalElement) {
-      const  modalInstance = new bootstrap.Modal(modalElement);
-      if (!this.showModal) {
-        modalInstance.show();
-      }
+      const modalInstance = new bootstrap.Modal(modalElement)
+      modalInstance.show();
     }
   }
 

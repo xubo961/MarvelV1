@@ -2,7 +2,7 @@
 <div class="modal fade" id="modalUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form class="modal-content" [formGroup]="registerForm" ]>
+    <form class="modal-content" [formGroup]="registerForm">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -12,7 +12,7 @@
           <input type="text" placeholder="usuario" formControlName="username">
         </div>
         <div class="mb-3">
-          <input type="password" placeholder="password" formControlName="passsword">
+          <input type="password" placeholder="password" formControlName="password">
         </div>
         <div class="mb-3">
           <input type="text" placeholder="nombre" formControlName="name">

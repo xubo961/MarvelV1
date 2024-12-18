@@ -9,6 +9,7 @@ import {UsersComponent} from './users/users.component';
 import {isLoggedGuard} from './services/guards/is-logged.guard';
 import {FormLayoutComponent} from './form-layout/form-layout.component';
 import {MarveliListComponent} from './marveli-list/marveli-list.component';
+import {FavoritosMarvelComponent} from './favoritos-marvel/favoritos-marvel.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "login" ,pathMatch: "full" },
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: "", component: LayoutConHeaderComponent, canActivate: [isLoggedGuard], children:[
       {path:"users", component: UsersComponent},
       {path:"marvel", component: MarveliListComponent},
+      {path:"favoritos", component: FavoritosMarvelComponent},
     ]}
   // {
   //    path: 'app', component: LayoutConHeaderComponent, children: [

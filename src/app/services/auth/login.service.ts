@@ -32,8 +32,8 @@ export class LoginService {
     });
   }
 
-  setUser(dato: LoginUser): void {
-    sessionStorage.setItem("user", JSON.stringify(dato));
+  setUser(dato: LoginUser, user_id: any): void {
+    sessionStorage.setItem("user", JSON.stringify({...dato, id: user_id}));
   }
 
   getUser(): LoginUser | null {

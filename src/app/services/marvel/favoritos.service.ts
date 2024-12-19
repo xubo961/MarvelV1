@@ -16,6 +16,14 @@ export class FavoritosService {
   }
 
   getAll(userId: any): Observable<any> {
-    return this.http.get(this.url, + "/" + userId);
+    return this.http.get(this.url + "/" + userId);
+  }
+
+  addFavorto(userId: any, idFavorito: number): Observable<any> {
+    return this.http.get(`${this.url}/${userId}/${idFavorito}`);
+  }
+
+  deleteFavorito(userId: any, idFavorito: number): Observable<any> {
+    return this.http.post(`${this.url}/delete`, {favoritoMarvel: idFavorito});
   }
 }

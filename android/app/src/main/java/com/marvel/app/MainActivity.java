@@ -1,0 +1,5 @@
+package com.marvel.app;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}

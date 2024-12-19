@@ -7,4 +7,11 @@ export interface Series {
     extension: string;
     path: string;
   }
+  idSpring?: number;
+}
+
+
+export interface SerieFavorito {
+  id: number;
+  serieMarvel: number;
 }
